@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <ImageView
+            android:id="@+id/celda_famosos_imagen"
+            android:layout_width="105dp"
+            android:layout_height="163dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/logomuvi" />
+
+        <TextView
+            android:id="@+id/celda_famosos_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="#E038F1"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="115dp"
+            android:text="Nombre"
+            android:textAlignment="inherit"
+            android:textSize="20dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

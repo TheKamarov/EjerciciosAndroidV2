@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainActivity_DrawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
+    tools:context=".view.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/MainActivity_TextView_Titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="MENU"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp">
+        </TextView>
+
+        <FrameLayout
+            android:id="@+id/MainActivity_FrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_below="@id/MainActivity_TextView_Titulo">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/MainActivity_CardView_ContenedorFragments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+            </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
