@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
                         anime.setDescription(jsonObject.getString("description"));
                         anime.setRating(jsonObject.getString("Rating"));
                         anime.setCategorie(jsonObject.getString("categorie"));
-                        anime.setImage_url(jsonObject.getString("img"));
                         anime.setNb_episode(jsonObject.getInt("episode"));
                         anime.setStudio(jsonObject.getString("studio"));
+                        anime.setImage_url(jsonObject.getString("img"));
                         animeList.add(anime);
 
                     } catch (JSONException e) {
