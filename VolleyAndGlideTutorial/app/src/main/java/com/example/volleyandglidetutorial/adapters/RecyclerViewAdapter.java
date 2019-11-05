@@ -1,10 +1,12 @@
 package com.example.volleyandglidetutorial.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.volleyandglidetutorial.R;
+import com.example.volleyandglidetutorial.activities.AnimeActivity;
 import com.example.volleyandglidetutorial.model.Anime;
 
 import java.util.List;
@@ -38,8 +41,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View view ;
         LayoutInflater inflater = LayoutInflater.from(mContext);
         view = inflater.inflate(R.layout.anime_row_item,parent,false);
+        final ViewHolder viewHolder = new ViewHolder(view);
+        viewHolder.linearLayoutViewContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        return new ViewHolder(view);
+                Intent intent = new Intent(mContext, AnimeActivity.class);
+                intent.putExtra("anime_name",mData.get(viewHolder.getAdapterPosition()).getName());
+                intent.putExtra("anime_description",mData.get(viewHolder.getAdapterPosition()).getDescription());
+                intent.putExtra("anime_studio",mData.get(viewHolder.getAdapterPosition()).getStudio());
+                intent.putExtra("anime_category",mData.get(viewHolder.getAdapterPosition()).getCategorie());
+                intent.putExtra("anime_nb_episode",mData.get(viewHolder.getAdapterPosition()).getNb_episode());
+                intent.putExtra("anime_rating",mData.get(viewHolder.getAdapterPosition()).getRating());
+                intent.putExtra("anime_img",mData.get(viewHolder.getAdapterPosition()).getImage_url());
+
+                mContext.startActivity(intent);
+            }
+        });
+
+        return viewHolder;
     }
 
     @Override
@@ -67,10 +87,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView textViewAnimeStudio;
         TextView textViewAnimeCategory;
         ImageView imageViewAnimeThumbnail;
+        LinearLayout linearLayoutViewContainer;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            linearLayoutViewContainer = itemView.findViewById(R.id.AnimeRowItem_LinearLayout_ParentLayout);
             textViewAnimeName = itemView.findViewById(R.id.AnimeRowItem_TextView_AnimeName);
             textViewAnimeCategory = itemView.findViewById(R.id.AnimeRowItem_TextView_AnimeCategory);
             textViewAnimeRating = itemView.findViewById(R.id.AnimeRowItem_TextView_AnimeRating);
